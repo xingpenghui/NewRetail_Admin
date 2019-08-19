@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.feri.admin.dao.PermissionDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.feri.admin.entity.Permission">
+        <id column="id" property="id" />
+        <result column="mname" property="mname" />
+        <result column="password" property="password" />
+        <result column="ctime" property="ctime" />
+        <result column="flag" property="flag" />
+    </resultMap>
+
+
+    <!---->
+    <select id="selectPerms" resultType="String">
+        select p.prms from sys_permission p inner join sys_rolepermission rp on p.id=rp.pid
+        inner join sys_userrole ur on rp.rid=ur.rid where p.type=2 and ur.uid=#{uid};
+    </select>
+    <select id="selectMenu" resultType="com.feri.admin.entity.Permission">
+        select p.* from sys_permission p inner join sys_rolepermission rp on p.id=rp.pid
+        inner join sys_userrole ur on ur.rid=rp.rid where p.type=1 and ur.uid=#{uid} order by p.level,p.id asc;
+    </select>
+</mapper>

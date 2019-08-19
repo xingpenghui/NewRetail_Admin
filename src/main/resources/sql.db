@@ -1,0 +1,14 @@
+#RBAC5表
+#1、用户表
+create table sys_member(id int primary key AUTO_INCREMENT,mname varchar(20),password varchar(50),ctime datetime,flag int);
+#2、角色表
+create table sys_role(id int primary key AUTO_INCREMENT,name varchar(20),info varchar(50));
+#3、角色表
+create table sys_userrole(id int primary key AUTO_INCREMENT,uid int,rid int);
+#4、权限表
+create table sys_permission(id int primary key AUTO_INCREMENT,name varchar(20),icon varchar(30),parentidn int
+,prms varchar(50),type int,level int);
+#5、角色权限表
+create table sys_rolepermission(id int primary key AUTO_INCREMENT,rid int,pid int);
+
+

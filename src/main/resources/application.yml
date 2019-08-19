@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: Newratil_Admin
+server:
+  port: 9898
+endpoints:
+  enabled: true
+  sensitive: false
