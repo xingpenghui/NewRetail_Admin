@@ -30,7 +30,7 @@ CREATE TABLE `sys_member` (
   `flag` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `i_mname` (`mname`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `sys_member` (
 
 LOCK TABLES `sys_member` WRITE;
 /*!40000 ALTER TABLE `sys_member` DISABLE KEYS */;
-INSERT INTO `sys_member` VALUES (1,'admin','v/Q7WDs24G/oneuI3VjfMQ==','2019-08-16 14:40:53',1);
+INSERT INTO `sys_member` VALUES (1,'admin','v/Q7WDs24G/oneuI3VjfMQ==','2019-08-16 14:40:53',1),(2,'chenpeijie','v/Q7WDs24G/oneuI3VjfMQ==','2019-08-19 16:04:42',1);
 /*!40000 ALTER TABLE `sys_member` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,7 +84,7 @@ CREATE TABLE `sys_role` (
   `name` varchar(20) DEFAULT NULL,
   `info` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,7 +93,7 @@ CREATE TABLE `sys_role` (
 
 LOCK TABLES `sys_role` WRITE;
 /*!40000 ALTER TABLE `sys_role` DISABLE KEYS */;
-INSERT INTO `sys_role` VALUES (1,'管理员','拥有一切权限，严禁泄露');
+INSERT INTO `sys_role` VALUES (1,'管理员','拥有一切权限，严禁泄露'),(2,'proservice','产品客服，只有产品管理权限');
 /*!40000 ALTER TABLE `sys_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,7 +109,7 @@ CREATE TABLE `sys_rolepermission` (
   `rid` int(11) DEFAULT NULL,
   `pid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,7 +118,7 @@ CREATE TABLE `sys_rolepermission` (
 
 LOCK TABLES `sys_rolepermission` WRITE;
 /*!40000 ALTER TABLE `sys_rolepermission` DISABLE KEYS */;
-INSERT INTO `sys_rolepermission` VALUES (1,1,1),(2,1,2),(3,1,3),(4,1,4),(5,1,5),(6,1,6),(7,1,7),(8,1,8),(9,1,9),(10,1,10),(11,1,11),(12,1,12),(13,1,13),(14,1,14),(15,1,15),(16,1,16),(17,1,17),(18,1,18),(19,1,19);
+INSERT INTO `sys_rolepermission` VALUES (1,1,1),(2,1,2),(3,1,3),(4,1,4),(5,1,5),(6,1,6),(7,1,7),(8,1,8),(9,1,9),(10,1,10),(11,1,11),(12,1,12),(13,1,13),(14,1,14),(15,1,15),(16,1,16),(17,1,17),(18,1,18),(19,1,19),(20,2,2),(21,2,12),(22,2,13),(23,2,14);
 /*!40000 ALTER TABLE `sys_rolepermission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,7 +134,7 @@ CREATE TABLE `sys_userrole` (
   `uid` int(11) DEFAULT NULL,
   `rid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,7 +143,7 @@ CREATE TABLE `sys_userrole` (
 
 LOCK TABLES `sys_userrole` WRITE;
 /*!40000 ALTER TABLE `sys_userrole` DISABLE KEYS */;
-INSERT INTO `sys_userrole` VALUES (1,1,1);
+INSERT INTO `sys_userrole` VALUES (1,1,1),(2,2,2);
 /*!40000 ALTER TABLE `sys_userrole` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -184,4 +184,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-19 10:45:58
+-- Dump completed on 2019-08-20 13:22:47

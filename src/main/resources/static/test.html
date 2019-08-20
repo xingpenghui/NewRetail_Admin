@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/js/vue.js"></script>
+
+</head>
+<body>
+<div>
+    <h1>Vue动态数据绑定</h1>
+    <div id="dvdata">
+        <ul>
+            <li v-for="m in obj.data">
+                <h2>{{m.permission.name}}</h2>
+                <div v-if="m.childs">
+                    <ul>
+                        <li v-for="c in m.childs">{{c.name}}</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="dvdata2">
+        <p>{{msg}}</p>
+    </div>
+    <script type="text/javascript">
+        var appmenu=new Vue({
+							el:"#dvdata",
+							data:{
+							    obj:{"code":0,"data":[{"permission":{"id":1,"name":"测试网站","icon":"icon-home","parentid":-1,"prms":"","type":1,"level":1}}],"msg":"执行成功"}
+							}
+		});
+		 var app2=new Vue({
+							el:"#dvdata2",
+							data:{"msg":"OK"}
+		});
+		$(function(){
+							//网络请求
+							$.get("/admin/menu/getallmenu.do",null,function(res){
+								console.log(appmenu.obj);
+								appmenu.obj=res;
+								console.log(appmenu.obj);
+							})
+				})
+    </script>
+</div>
+</body>
+</html>

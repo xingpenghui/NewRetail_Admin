@@ -3,6 +3,7 @@ package com.feri.admin.controller;
 import com.baomidou.mybatisplus.extension.api.R;
 import com.feri.admin.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +24,7 @@ public class PermissionController {
     public R checkPerm(String p){
        return permissionService.checkPerms(p);
     }
+    @CrossOrigin
     @GetMapping("/admin/menu/getallmenu.do")
     public R queryAll(){
         return permissionService.queryMenu();
